@@ -1,0 +1,349 @@
+<!--
+Detall de Personas
+AF - 18-01-18
+-->
+<!-- Fila 1 -->
+<div class="row-fluid">
+  <!-- Bloque 1: General -->
+  <div class="span4">
+    <div style="background-color: #f9f9f9">
+      <div class="accordion-group">
+        <!-- Encabezado -->
+        <div class="accordion-heading" style="background-color: {{colores.azul}}">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion0" href="#collapseOne">
+            <font color=#ffffff>
+              <center><strong>General</strong></center>
+            </font>
+          </a>
+        </div>
+        <!-- Contenido -->
+        <div id="collapseOne" class="accordion-body in collapse" style="background-color: #ffffff">
+          <!-- Línea 1 -->
+          <div class="row-fluid" style="background-color: #f9f9f9">
+            <div class="span6"><strong>Tipo</strong> </div>
+            <div class="span6">{{general_cliente.tipo}}</div>
+          </div>
+          <!-- Línea 2 -->
+          <div class="row-fluid"  style="background-color: #ffffff">
+            <div class="span6"><strong>Segmento</strong></div>
+            <div class="span6">{{general_cliente.segmento}}</div>
+          </div>
+          <!-- Línea 3 -->
+          <div class="row-fluid" style="background-color: #f9f9f9">
+            <div class="span6"><strong>Cobranza</strong> </div>
+            <div class="span6">{{general_cliente.cobranza}}</div>
+          </div>
+          <!-- Línea 4 -->
+          <div class="row-fluid" style="background-color: #ffffff">
+            <div class="span6"><strong>Sector económico</strong> </div>
+            <div class="span6">{{general_cliente.sector_economico}}</div>
+          </div>
+          <!-- Línea 5 -->
+          <div class="row-fluid" style="background-color: #f9f9f9">
+            <div class="span6"><strong>Grupo Empresarial</strong> </div>
+            <div class="span6">{{general_cliente.grupo_empresarial}}</div>
+          </div>
+          <!-- Línea 6 -->
+          <div class="row-fluid" style="background-color: #ffffff">
+            <div class="span6"><strong>Nivel de satisfacción</strong> </div>
+            <div class="span6">{{general_cliente.nivel_satisfaccion}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Bloque 2: Alertas -->
+  <div class="span4">
+    <div style="background-color: #f9f9f9">
+      <div class="accordion-group">
+        <!-- Encabezado -->
+        <div class="accordion-heading" style="background-color: {{colores.azul}}">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo">
+            <font color=#ffffff>
+              <center>
+                <strong>
+                  Alertas ({{alertas.total}})
+                </strong>
+              </center>
+            </font>
+          </a>
+        </div>
+        <!-- Contenido -->
+        <div id="collapseTwo" class="accordion-body in collapse" style="background-color: #ffffff">
+          <!-- Línea 1 -->
+          <div class="row-fluid" style="background-color: #ffffff">
+            <div class="span12" style="height: 180px; overflow: scroll;">
+              <strong>
+                {{#if alertas.alerta}}
+                  {{#each alertas.alerta}}
+                    <div style="border-style: groove;">
+                      <font color=#21618C> {{numero}} </font> |
+                      <font color=#F1C40F> {{prioridad}} </font> |
+                      <a href="#Notifications/{{idNotificacion}}" target="_blank">
+                        {{mensaje}}
+                      </a>
+                    </div>
+                  {{/each}}
+                {{else}}
+                  <center>No hay alertas pendientes</center>
+                {{/if}}
+              </strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Bloque 3: Historial Contactos -->
+  <div class="span4">
+    <div style="background-color: #f9f9f9">
+      <div class="accordion-group">
+        <!-- Encabezado -->
+        <div class="accordion-heading" style="background-color: {{historial_contactos.color}}">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4" href="#collapseThree">
+            <font color=#ffffff>
+              <center><strong>Historial de contactos</strong></center>
+            </font>
+          </a>
+        </div>
+        <!-- Contenido -->
+        <div id="collapseThree" class="accordion-body in collapse" style="background-color: #ffffff">
+          <!-- Línea 1 -->
+          <div class="row-fluid" style="background-color: #f9f9f9">
+            <div class="span6"><strong>Última cita</strong> </div>
+            <div class="span6">{{historial_contactos.ultima_cita}}</div>
+          </div>
+          <!-- Línea 2 -->
+          <div class="row-fluid"  style="background-color: #ffffff">
+            <div class="span6"><strong>Última llamada</strong></div>
+            <div class="span6">{{historial_contactos.ultima_llamada}}</div>
+          </div>
+          <!-- Línea 3 -->
+          <div class="row-fluid">
+            <center>
+              <font color=#ffffff>
+                <!-- Línea 3.1 -->
+                <div class="span4" style="background-color: #555555">
+                  <strong>{{historial_contactos.citas}}</strong></br>
+                  Citas
+                </div>
+                <!-- Línea 3.2 -->
+                <div class="span4" style="background-color: #555555">
+                  <strong>{{historial_contactos.llamadas}}</strong><br/>
+                  llamadas
+                </div>
+                <!-- Línea 3.3 -->
+                <div class="span4" style="background-color: #555555">
+                  <strong>{{historial_contactos.emails}}</strong><br/>
+                  Emails
+                </div>
+              </font>
+            </center>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Fila 2 -->
+<div class="row-fluid">
+  <!-- Bloque 4: Leasing- -->
+  <div class="span4">
+    <div style="background-color: #f9f9f9">
+      <div class="accordion-group">
+        <!-- Encabezado -->
+        <div class="accordion-heading" style="background-color: {{colores.azul}}">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseFour">
+            <font color=#ffffff>
+              <center><strong>Leasing</strong></center>
+            </font>
+          </a>
+        </div>
+        <!-- Contenido -->
+        <div id="collapseFour" class="accordion-body in collapse" style="background-color: #ffffff">
+          <!-- Línea 1 -->
+          <div class="row-fluid" style="background-color: #f9f9f9">
+            <div class="span6"><strong>Línea autorizada</strong> </div>
+            <div class="span6">$ {{customFormatNumber leasing.linea_autorizada}}</div>
+          </div>
+          <!-- Línea 2 -->
+          <div class="row-fluid"  style="background-color: #ffffff">
+            <div class="span6"><strong>Fecha de vencimiento</strong></div>
+            <div class="span6"> {{leasing.fecha_vencimiento}} </div>
+          </div>
+          <!-- Línea 3 -->
+          <div class="row-fluid" style="background-color: #f9f9f9">
+            <div class="span6"><strong>Línea disponible</strong> </div>
+            <div class="span6">
+              <font {{#if leasing.color}}color="{{leasing.color}}"{{/if}}>
+                $ {{customFormatNumber leasing.linea_disponible}}
+              </font>
+            </div>
+          </div>
+          <!-- Línea 4 -->
+          <div class="row-fluid" style="background-color: #ffffff">
+            <div class="span6"><strong>Fecha de pago</strong> </div>
+            <div class="span6">{{leasing.fecha_pago}}</div>
+          </div>
+          <!-- Línea 5 -->
+          <div class="row-fluid" style="background-color: #f9f9f9">
+            <div class="span6"><strong>Promotor</strong> </div>
+            <div class="span6">{{leasing.promotor}}</div>
+          </div>
+          <!-- Línea 6 -->
+          <div class="row-fluid">
+            <center>
+              <font color=#ffffff>
+                <!-- Línea 6.1 -->
+                <div class="span6" style="background-color: #555555">
+                  <strong>{{leasing.anexos_activos}}</strong></br>
+                  Anexos activos
+                </div>
+                <!-- Línea 6.2 -->
+                <div class="span6" style="background-color: #555555">
+                  <strong>{{leasing.anexos_historicos}}</strong><br/>
+                  Anexos historicos
+                </div>
+              </font>
+            </center>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Bloque 5: Factoring -->
+  <div class="span4">
+    <div style="background-color: #f9f9f9">
+      <div class="accordion-group">
+        <!-- Encabezado -->
+        <div class="accordion-heading" style="background-color: {{colores.azul}}">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">
+            <font color=#ffffff>
+              <center><strong>Factoring</strong></center>
+            </font>
+          </a>
+        </div>
+        <!-- Contenido -->
+        <div id="collapseFive" class="accordion-body in collapse" style="background-color: #ffffff">
+          <!-- Línea 1 -->
+          <div class="row-fluid" style="background-color: #f9f9f9">
+            <div class="span6"><strong>Línea autorizada</strong> </div>
+            <div class="span6">$ {{customFormatNumber factoring.linea_autorizada}}</div>
+          </div>
+          <!-- Línea 2 -->
+          <div class="row-fluid"  style="background-color: #ffffff">
+            <div class="span6"><strong>Fecha de vencimiento</strong></div>
+            <div class="span6">{{factoring.fecha_vencimiento}}</div>
+          </div>
+          <!-- Línea 3 -->
+          <div class="row-fluid" style="background-color: #f9f9f9">
+            <div class="span6"><strong>Línea disponible</strong> </div>
+            <div class="span6">
+              <font {{#if factoring.color}}color="{{factoring.color}}"{{/if}}>
+                $ {{customFormatNumber factoring.linea_disponible}}
+              </font>
+            </div>
+          </div>
+          <!-- Línea 4 -->
+          <div class="row-fluid" style="background-color: #ffffff">
+            <div class="span6"><strong>Fecha de pago</strong> </div>
+            <div class="span6">{{factoring.fecha_pago}}</div>
+          </div>
+          <!-- Línea 5 -->
+          <div class="row-fluid" style="background-color: #f9f9f9">
+            <div class="span6"><strong>Promotor</strong> </div>
+            <div class="span6">{{factoring.promotor}}</div>
+          </div>
+          <!-- Línea 6 -->
+          <div class="row-fluid">
+            <center>
+              <font color=#ffffff>
+                <!-- Línea 6.1 -->
+                <div class="span6" style="background-color: #555555">
+                  <strong>{{factoring.anexos_activos}}</strong></br>
+                  Anexos activos
+                </div>
+                <!-- Línea 6.2 -->
+                <div class="span6" style="background-color: #555555">
+                  <strong>{{factoring.anexos_historicos}}</strong><br/>
+                  Anexos historicos
+                </div>
+              </font>
+            </center>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Bloque 6: Crédito Auto -->
+  <div class="span4">
+    <div style="background-color: #f9f9f9">
+      <div class="accordion-group">
+        <!-- Encabezado -->
+        <div class="accordion-heading" style="background-color: {{colores.azul}}">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapseSix">
+            <font color=#ffffff>
+              <center><strong>C.Auto</strong></center>
+            </font>
+          </a>
+        </div>
+        <!-- Contenido -->
+        <div id="collapseSix" class="accordion-body in collapse" style="background-color: #ffffff">
+          <!-- Línea 1 -->
+          <div class="row-fluid" style="background-color: #f9f9f9">
+            <div class="span6"><strong>Línea autorizada</strong> </div>
+            <div class="span6">$ {{customFormatNumber credito_auto.linea_autorizada}}</div>
+          </div>
+          <!-- Línea 2 -->
+          <div class="row-fluid"  style="background-color: #ffffff">
+            <div class="span6"><strong>Fecha de vencimiento</strong></div>
+            <div class="span6">{{credito_auto.fecha_vencimiento}}</div>
+          </div>
+          <!-- Línea 3 -->
+          <div class="row-fluid" style="background-color: #f9f9f9">
+            <div class="span6"><strong>Línea disponible</strong> </div>
+            <div class="span6">
+              <font {{#if credito_auto.color}}color="{{credito_auto.color}}"{{/if}}>
+                $ {{customFormatNumber credito_auto.linea_disponible}}
+              </font>
+            </div>
+          </div>
+          <!-- Línea 4 -->
+          <div class="row-fluid" style="background-color: #ffffff">
+            <div class="span6"><strong>Fecha de pago</strong> </div>
+            <div class="span6">{{credito_auto.fecha_pago}}</div>
+          </div>
+          <!-- Línea 5 -->
+          <div class="row-fluid" style="background-color: #f9f9f9">
+            <div class="span6"><strong>Promotor</strong> </div>
+            <div class="span6">{{credito_auto.promotor}}</div>
+          </div>
+          <!-- Línea 6 -->
+          <div class="row-fluid">
+            <center>
+              <font color=#ffffff>
+                <!-- Línea 6.1 -->
+                <div class="span6" style="background-color: #555555">
+                  <strong>{{credito_auto.anexos_activos}}</strong></br>
+                  Anexos activos
+                </div>
+                <!-- Línea 6.2 -->
+                <div class="span6" style="background-color: #555555">
+                  <strong>{{credito_auto.anexos_historicos}}</strong><br/>
+                  Anexos historicos
+                </div>
+              </font>
+            </center>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--
+Azul: #21618C
+Rojo: #C0392B
+Amarillo: #F1C40F
+->
