@@ -76,8 +76,8 @@ class ResumenClienteAPI extends SugarApi
             "linea_disponible" => "",
             "potencial" => "",
             "fecha_pago" => "",//mas lejana
-            "anexos_activos" => "",
-            "anexos_historicos" => "",
+            "anexos_activos" => 0,
+            "anexos_historicos" => 0,
             "promotor" => "",
             "color" => "");
         //Factoraje
@@ -86,8 +86,8 @@ class ResumenClienteAPI extends SugarApi
             "fecha_completa_vencimiento" => "",
             "linea_disponible" => "",
             "fecha_pago" => "",
-            "anexos_activos" => "",
-            "anexos_historicos" => "",
+            "anexos_activos" => 0,
+            "anexos_historicos" => 0,
             "promotor" => "",
             "color" => "");
         //Crédito automotriz
@@ -96,8 +96,8 @@ class ResumenClienteAPI extends SugarApi
             "fecha_completa_vencimiento" => "",
             "linea_disponible" => "",
             "fecha_pago" => "",
-            "anexos_activos" => "",
-            "anexos_historicos" => "",
+            "anexos_activos" => 0,
+            "anexos_historicos" => 0,
             "promotor" => "",
             "color" => "");
         //Historial de contactos
@@ -196,8 +196,6 @@ class ResumenClienteAPI extends SugarApi
                         $arr_principal['leasing']['linea_disponible']=$linea_disp_leasing;
                         $arr_principal['leasing']['potencial']="";
                         $arr_principal['leasing']['fecha_pago']="";
-                        $arr_principal['leasing']['anexos_activos']="";
-                        $arr_principal['leasing']['anexos_historicos']="";
                         //$arr_principal['leasing']['promotor']=$beanPersona->promotorleasing_c;
 
                         //Logs
@@ -230,8 +228,6 @@ class ResumenClienteAPI extends SugarApi
                         $arr_principal['factoring']['fecha_vencimiento']=$vencimiento_factoring;
                         $arr_principal['factoring']['linea_disponible']=$linea_disp_factoring;
                         $arr_principal['factoring']['fecha_pago']="";
-                        $arr_principal['factoring']['anexos_activos']="";
-                        $arr_principal['factoring']['anexos_historicos']="";
                         //$arr_principal['factoring']['promotor']=$beanPersona->promotorfactoraje_c;
 
                         //Logs
@@ -264,8 +260,6 @@ class ResumenClienteAPI extends SugarApi
                         $arr_principal['credito_auto']['fecha_vencimiento']=$vencimiento_cauto;
                         $arr_principal['credito_auto']['linea_disponible']=$linea_disp_credito_aut;
                         $arr_principal['credito_auto']['fecha_pago']="";
-                        $arr_principal['credito_auto']['anexos_activos']="";
-                        $arr_principal['credito_auto']['anexos_historicos']="";
                         //$arr_principal['credito_auto']['promotor']=$beanPersona->promotorcredit_c;
 
                         //Logs
@@ -386,18 +380,40 @@ class ResumenClienteAPI extends SugarApi
             if($beanResumen){
                 //Recupera Leasing
                 $arr_principal['leasing']['fecha_pago']= $beanResumen->leasing_fecha_pago;
-                $arr_principal['leasing']['anexos_activos']= $beanResumen->leasing_anexos_activos;
-                $arr_principal['leasing']['anexos_historicos']= $beanResumen->leasing_anexos_historicos;
+                if(!empty($beanResumen->leasing_anexos_activos) && $beanResumen->leasing_anexos_activos!="")
+                {
+                    $arr_principal['leasing']['anexos_activos']= $beanResumen->leasing_anexos_activos;
+                }
+                if(!empty($beanResumen->leasing_anexos_historicos) && $beanResumen->leasing_anexos_historicos!="")
+                {
+                    $arr_principal['leasing']['anexos_historicos']= $beanResumen->leasing_anexos_historicos;
+                }
+                
 
                 //Recupera Factoring
                 $arr_principal['factoring']['fecha_pago']= $beanResumen->factoring_fecha_pago;
-                $arr_principal['factoring']['anexos_activos']= $beanResumen->factoring_anexos_activos;
-                $arr_principal['factoring']['anexos_historicos']= $beanResumen->factoring_anexos_historicos;
-
+                if(!empty($beanResumen->factoring_anexos_activos) && $beanResumen->factoring_anexos_activos!="")
+                {
+                    $arr_principal['factoring']['anexos_activos']= $beanResumen->factoring_anexos_activos;
+                }
+                if(!empty($beanResumen->factoring_anexos_historicos) && $beanResumen->factoring_anexos_historicos!="")
+                {
+                    $arr_principal['factoring']['anexos_historicos']= $beanResumen->factoring_anexos_historicos;
+                }
+                
+                
                 //Recupera Credito Auto
                 $arr_principal['credito_auto']['fecha_pago']= $beanResumen->cauto_fecha_pago;
-                $arr_principal['credito_auto']['anexos_activos']= $beanResumen->cauto_anexos_activos;
-                $arr_principal['credito_auto']['anexos_historicos']= $beanResumen->cauto_anexos_historicos;
+                if(!empty($beanResumen->cauto_anexos_activos) && $beanResumen->cauto_anexos_activos!="")
+                {
+                    $arr_principal['credito_auto']['anexos_activos']= $beanResumen->cauto_anexos_activos;
+                }
+                if(!empty($beanResumen->cauto_anexos_historicos) && $beanResumen->cauto_anexos_historicos!="")
+                {
+                    $arr_principal['credito_auto']['anexos_historicos']= $beanResumen->cauto_anexos_historicos;
+                }
+                
+                
             }
         }
 
