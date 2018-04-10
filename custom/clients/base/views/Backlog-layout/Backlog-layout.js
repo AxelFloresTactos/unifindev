@@ -38,6 +38,8 @@
         'click #NumeroBacklogSort': 'ordenarPorNumeroBacklog',
         'click #MontoOperacionSort': 'ordenarPorMontoOperacion',
         'click #MontoFinalSort': 'ordenarPorMontoFinal',
+        'click .marcarTodos': 'marcarCasillas',
+
     },
 
     initialize: function (options) {
@@ -2071,5 +2073,15 @@
             this.MontoFinalSortDirection = 'DESC';
         }
         this.cargarBacklogs('monto_final_comprometido', this.MontoFinalSortDirection);
+    },
+
+    marcarCasillas: function () {
+        console.log("seleccionarTodo");
+        if($('input[id="selectAll"]').attr('checked')){
+          $('input[type="checkbox"]').attr('checked', true);
+        }else{
+          $('input[type="checkbox"]').attr('checked', false);
+        }
+        //$('input[type="checkbox"]').attr('checked', false);
     },
 })
