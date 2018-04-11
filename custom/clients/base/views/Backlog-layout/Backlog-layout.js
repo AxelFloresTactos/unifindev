@@ -38,7 +38,11 @@
         'click #NumeroBacklogSort': 'ordenarPorNumeroBacklog',
         'click #MontoOperacionSort': 'ordenarPorMontoOperacion',
         'click #MontoFinalSort': 'ordenarPorMontoFinal',
+        // AF: 10/04/2018
+        // Backlog: Actualizar masivamente
         'click .marcarTodos': 'marcarCasillas',
+        'click .CancelarMasiva': 'cancelarBacklogMasiva',
+        'click .MoverOperacionMasiva': 'moverOperacionMasiva',
 
     },
 
@@ -2083,5 +2087,13 @@
           $('input[type="checkbox"]').attr('checked', false);
         }
         //$('input[type="checkbox"]').attr('checked', false);
+    },
+
+    moverOperacionMasiva: function () {
+        console.log("Mover operación masiva");
+    },
+
+    cancelarBacklogMasiva: function () {
+        console.log("Cancelar backlog masiva");
     },
 })
