@@ -51,6 +51,12 @@ SUGAR.util.doWhen("typeof(check_form) != 'undefined' && typeof check_form == 'fu
                   alert("Contraseña no debe tener caracteres especiales");
                   return false;
               }
+              
+              expreg = strPwd.search(/unifin/i);
+              if (expreg >= 0) {
+                  alert("Contraseña no debe contener la palabra unifin");
+                  return false;
+              }
 
             }else{
               alert("Contraseña debe tener entre 8 y 16 caracteres");

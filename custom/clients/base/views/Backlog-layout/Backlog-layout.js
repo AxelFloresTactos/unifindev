@@ -43,6 +43,8 @@
         'click .marcarTodos': 'marcarCasillas',
         'click .CancelarMasiva': 'cancelarBacklogMasiva',
         'click .MoverOperacionMasiva': 'moverOperacionMasiva',
+        'change .checkboxChange': 'SetMenuOptions',
+
 
     },
 
@@ -2096,4 +2098,25 @@
     cancelarBacklogMasiva: function () {
         console.log("Cancelar backlog masiva");
     },
+    SetMenuOptions: function () {
+        console.log("SetMenuOptions");
+        //Recupera checks
+        var checks = $('input[type="checkbox"]');
+
+        //Proecsa para validar
+        var active = false;
+        for (var i = 0; i < checks.length; i++) {
+          if(checks[i].checked == true){
+            active = true;
+          }
+        }
+
+        if (active == true) {
+          $("#menuOptions").removeClass('disabled');
+        }else {
+          $("#menuOptions").addClass("disabled");
+        }
+
+    },
+
 })

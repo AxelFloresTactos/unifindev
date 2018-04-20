@@ -595,6 +595,9 @@ class ResumenClienteAPI extends SugarApi
             }else {
               $fecha_contacto = $fecha_cita;
             }
+
+            $GLOBALS['log']->fatal('fecha de contacto:');
+            $GLOBALS['log']->fatal($fecha_contacto);
             //Calcula diferencia
             $current_date = new DateTime($today->format("Y-m-d"));
             $fecha_contacto = new DateTime($fecha_contacto->format("Y-m-d"));
@@ -602,12 +605,17 @@ class ResumenClienteAPI extends SugarApi
             $diferencia = $current_date->diff($fecha_contacto);
             $meses = ( $diferencia->y * 12 ) + $diferencia->m;
 
+            $GLOBALS['log']->fatal('diferencia:');
+            $GLOBALS['log']->fatal($meses);
+
             //Asigna color
-            if($meses == 2){
-                $arr_principal['historial_contactos']['color'] = $Amarillo;
-            }
-            if ($meses >= 3) {
-                $arr_principal['historial_contactos']['color'] = $Rojo;
+            if($current_date > $fecha_contacto){
+                if($meses == 2){
+                    $arr_principal['historial_contactos']['color'] = $Amarillo;
+                }
+                if ($meses >= 3) {
+                    $arr_principal['historial_contactos']['color'] = $Rojo;
+                }
             }
 
             //Log
